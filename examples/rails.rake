@@ -1,17 +1,13 @@
 begin
-  require 'jslint/testtask'
+  require 'csslint/testtask'
 
-  JSLint::TestTask.new do |t|
-    t.file_list = Dir['{app,lib}/assets/javascripts/**/*.js']
+  CSSLint::TestTask.new do |t|
+    t.file_list = Dir['{app,lib}/assets/css/**/*.css']
     t.options = {
-      browser: true,
-      nomen: true,
-      plusplus: true,
-      sloppy: true,
-      white: true
+       # ...
     }
   end
   Rake::Task[:test].enhance(['jslint'])
 rescue LoadError
-  # JSLint not loaded (eg, in production). Oh well.
+  # CSSLint not loaded (eg, in production). Oh well.
 end
