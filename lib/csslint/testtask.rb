@@ -6,7 +6,7 @@ module CSSLint
     include Rake::DSL
 
     # Public: Gets/Sets the Array of JavaScript filenames as Strings, each of
-    # which will be run through csslint. (default: Dir['**/*.js'])
+    # which will be run through csslint. (default: Dir['**/*.css'])
     attr_accessor :file_list
 
     # Public: Gets/Sets the Hash of options that will be passed to each call
@@ -37,7 +37,7 @@ module CSSLint
         errors = []
 
         @file_list.each do |f|
-          result = CSSLint.run(File.open(f), @options)
+          result = CSSLint.run(File.open(f), @options )
           if result.valid?
             print '.'
           else
