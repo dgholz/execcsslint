@@ -1,7 +1,7 @@
 ExecCSSLint
 ==========
 
-ExecCSSLint is a thin Ruby wrapper that uses ExecJS to execute [csslint].
+ExecCSSLint is a thin Ruby wrapper that uses ExecJS to execute [csslint]. It is heavily inspired by Dean Strelau's [https://github.com/mintdigital/execjslint][ExecJSLint].
 
 Install
 -------
