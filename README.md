@@ -14,15 +14,24 @@ Usage
 -----
 
 ```ruby
-js = File.open('path/to/my.js')
-results = csslint.run(js)
-if result.valid?
-  puts "Great job pal"
-else
+require 'execcsslint'
+
+css = File.open('path/to/my.css')
+results = CSSLint.run(css)
+if !result.valid?
+  # There were errors
   puts "Check your CSS"
-  puts result.errors
+  puts result.error_messages
+elsif !result.error_messages.empty?
+  # There were warnings
+  puts "You may want to take at look at your CSS"
+  puts result.error_messages
+else
+  puts "Great job pal"
 end
 ```
+
+`CSSLint.run` accepts an IO object (that responds to `read()`) or a string.
 
 If you're looking to use this in a Rails app, take a look at
 [examples/csslint.rake](the example rake task).
